@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <meta name="keywords"
+    content="Blogs,Blog,Article,Articles,Blooglee">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<style>
+  body {
+      background-color: #f7fafc;
+    }
+    textarea {
+			resize: none;
+		}
+    header {
+			color: #000;
+			padding: 20px;
+			text-align: center;
+      font-family: 'Roboto', sans-serif;
+		}
+		h1 {
+			margin: 0;
+			font-size: 2rem;
+		}
+		main {
+			padding: 20px;
+		}
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			padding: 20px;
+			
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			width: 100%;
+			resize: none;
+			font-size: 1.2rem;
+		}
+		input[type="submit"] {
+			background-color: #000;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 1.2rem;
+			transition: all 0.3s ease-in-out;
+		}
+		input[type="submit"]:hover {
+			background-color: #fff;
+			color: #000;
+		}
+		.social-box {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			margin-top: 30px;
+		}
+		.social-box a {
+			display: inline-block;
+			margin-right: 10px;
+			font-size: 1.5rem;
+			color: #000;
+			transition: all 0.3s ease-in-out;
+		}
+		.social-box a:hover {
+			color: #fff;
+		}
+		@media screen and (max-width: 768px) {
+			form {
+				max-width: 100%;
+			}
+		}
+		
+@media (min-width: 1024px) {
+  .justify-center {
+    justify-content: center;
+  }
+}
+@media (max-width: 1023px) {
+  .justify-start {
+    justify-content: flex-start;
+  }
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon img {
+  display: block;
+  margin: 0 30px;
+  height: 32px;
+  width: 32px;
+  margin-bottom: 10px;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+  </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('form').submit(function(e) {
+      e.preventDefault();
+      var formData = $(this).serialize();
+      $.ajax({
+        type: 'POST',
+        url: 'submit-form.php',
+        data: formData,
+        success: function() {
+          $('form')[0].reset();
+          alert('Thanks for your message!');
+        },
+        error: function() {	alert('Sorry, there was an error. Please try again later.');
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+  <!-- Nav Bar Start -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="p-4 flex flex-row items-center justify-between">
+        <a href="/index.html"
+          class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:text-black ">Blooglee</a>
+        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open" title="Blooglee"  type="button">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/blogs.html">Blogs</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/poll.html">Polls</a>
+
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/aboutus.html">About Us</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/contact.html">Contact Us</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/faq.html">FAQ</a>
+
+      </nav>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Nav Bar End -->
+  
+  
+    <header><h1>Contact Us</h1>
+	<p>Have a question or comment? Fill out the form below and we'll get back to you as soon as possible.</p></header>
+	<form action="/submit-form.php" method="post">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br><br>
+		<label for="message">Message:</label><br>
+		<textarea id="message" name="message" rows="5" required></textarea><br><br>
+		<input type="submit" value="Submit">
+	</form>
+	
+	  
+
+
+
+	  
+
+
+
+
+
+
+
+
+  <script>
+    var textarea = document.getElementById("message");
+		var defaultHeight = textarea.clientHeight;
+		textarea.addEventListener("input", function() {
+			var newHeight = this.scrollHeight;
+			if (newHeight > defaultHeight) {
+				this.style.height = newHeight + "px";
+			} else {
+				this.style.height = defaultHeight + "px";
+			}
+		});
+		textarea.addEventListener("focus", function() {
+			this.style.height = defaultHeight + "px";
+		});
+		textarea.addEventListener("blur", function() {
+			if (this.value == "") {
+				this.style.height = defaultHeight + "px";
+			}
+		}); 
+
+  </script>
+ 
+  <footer>
+	<div class="icon">
+	<a href="mailto:officialblooglee@gmail.com" target="_blank"><img src="/Images/Gmail.svg" alt="Image 1" > </a> 
+	<a href="https://discord.gg/Wail.comBurZMY3zZ" target="_blank"><img src="/Images/Discord.svg" alt="Image 2"></a>
+		<a href="https://www.patreon.com/Blooglee/membership?" target="_blank"><img src="/Images/patreon.svg" alt="Image 3"></a>
+	
+	  </div>
+	<div class="footer-container">
+	  <div class="links">
+		<a href="/privacy-policy.html">Privacy Policy</a>
+		<span>|</span>
+		<p>&copy; 2023 Blooglee.com, All rights reserved.</p>
+	  </div>
+	</div>
+  </footer>
+  
+</body>
+
+</html>

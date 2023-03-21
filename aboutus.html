@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords"
+    content="Blogs,Blog,Article,Articles,Blooglee">
+  <title>About Us</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/css.css">
+  <style>
+.about-section {
+  background-color: #fff;
+  padding: 50px;
+  text-align: center;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.member {
+  margin: 20px;
+  text-align: center;
+}
+
+.image-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.member h3 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.member p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+   <!-- Nav Bar Start -->
+   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+     <div x-data="{ open: false }"
+       class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+       <div class="p-4 flex flex-row items-center justify-between">
+         <a href="/index.html"
+           class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:text-black ">Blooglee</a>
+         <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open" title="Blooglee"  type="button">
+           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+             <path x-show="!open" fill-rule="evenodd"
+               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+               clip-rule="evenodd"></path>
+             <path x-show="open" fill-rule="evenodd"
+               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+               clip-rule="evenodd"></path>
+           </svg>
+         </button>
+       </div>
+       <nav :class="{'flex': open, 'hidden': !open}"
+         class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+         <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+           href="/blogs.html">Blogs</a>
+         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+           href="/poll.html">Polls</a>
+ 
+         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+           href="/aboutus.html">About Us</a>
+         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+           href="/contact.html">Contact Us</a>
+         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+           href="/faq.html">FAQ</a>
+ 
+       </nav>
+     </div>
+   </div>
+   <hr>
+   <div class="about-section">
+    <h2>About Us</h2>
+    <p>On our website, you will find helpful resources and information about superhero movies and series.</p>
+    <div class="team-members">
+      <div class="member">
+        <div class="image-wrapper">
+          <img src="/Images/noti.png" alt="Member 1">
+        </div>
+        <h3>Notiamdean99</h3>
+        <p> Owner And Web Developer</p>
+      </div>
+      
+    </div>
+  </div>
+  <footer>
+    <div class="icon">
+    <a href="mailto:officialblooglee@gmail.com" target="_blank"><img src="/Images/Gmail.svg" alt="Image 1" > </a> 
+    <a href="https://discord.gg/Wail.comBurZMY3zZ" target="_blank"><img src="/Images/Discord.svg" alt="Image 2"></a>
+      <a href="https://www.patreon.com/Blooglee/membership?" target="_blank"><img src="/Images/patreon.svg" alt="Image 3"></a>
+    
+      </div>
+    <div class="footer-container">
+      <div class="links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <span>|</span>
+      <p>&copy; 2023 Blooglee.com, All rights reserved.</p>
+      </div>
+    </div>
+    </footer>
+  <hr>
+</body>
+
+</html>

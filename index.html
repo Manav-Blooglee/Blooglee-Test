@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <meta name="keywords" content="Blogs,Blog,Article,Articles,Blooglee,Knowledge">
+  <title>Blooglee - Heaven For Superhero Fans</title>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="/dist/output.css" rel="stylesheet">
+
+
+
+  <style>
+    .btn {
+      background-color: gray;
+      border: 2px solid gray;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      height: 50px;
+      margin: auto;
+      width: 150px;
+
+    }
+
+    .btn:hover {
+      background-color: white;
+      color: gray;
+    }
+
+    @media (max-width: 768px) {
+      .btn {
+        font-size: 14px;
+        margin: auto;
+
+      }
+    }
+
+
+
+
+    .carousel-wrapper {
+      height: 400px;
+      position: relative;
+      width: 800px;
+      display: block;
+      margin: 10px auto;
+      border: 2px solid black;
+    }
+
+    @media(max-width:768px) {
+
+      .carousel-wrapper {
+        width: auto;
+
+      }
+
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 50px;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .arrow {
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 12px;
+    }
+
+    .arrow-prev {
+      left: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(135deg);
+
+    }
+
+    .arrow-next {
+      right: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    [id^="item"] {
+      display: none;
+    }
+
+    .item-1 {
+      z-index: 2;
+      opacity: 1;
+      background: url('/Images/1.jpg');
+      background-size: cover;
+
+    }
+
+    @media(max-width:768px) {
+      .item-1 {
+        margin: auto;
+      }
+
+      .item-2 {
+        margin: auto;
+
+      }
+
+      .item-3 {
+        margin: auto;
+      }
+    }
+
+    .item-2 {
+      background: url('/Images/dc.jpg');
+      background-size: cover;
+    }
+
+    .item-3 {
+      background: url('/Images/2.jpg');
+      background-size: cover;
+    }
+
+    *:target~.item-1 {
+      opacity: 0;
+    }
+
+    #item-1:target~.item-1 {
+      opacity: 1;
+
+    }
+
+    #item-2:target~.item-2,
+    #item-3:target~.item-3 {
+      z-index: 3;
+      opacity: 1;
+    }
+  </style>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <!-- Nav Bar Start -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    <div x-data="{ open: false }"
+      class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="p-4 flex flex-row items-center justify-between">
+        <a href="/index.html"
+          class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:text-black ">Blooglee</a>
+        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open" title="Blooglee"  type="button">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}"
+        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/blogs.html">Blogs</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/poll.html">Polls</a>
+
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/aboutus.html">About Us</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/contact.html">Contact Us</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          href="/faq.html">FAQ</a>
+
+      </nav>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Nav Bar End -->
+
+
+
+  <center>
+    <h1 class="text-gray-900">Welcome To The Home Of Superhero Related Information & Theories </h1>
+    <h1 class="font-bold text-gray-900"> Let's Dive Into Some Fan Theories! </h1>
+  </center>
+
+
+
+
+  <div class="carousel-wrapper">
+    <span id="item-1"></span>
+    <span id="item-2"></span>
+    <span id="item-3"></span>
+    <div class="carousel-item item-1">
+      <a href="#item-3" class="arrow-prev arrow" title="Arrow" ></a>
+      <a href="#item-2" class="arrow-next arrow" title="Arrow" ></a>
+    </div>
+
+    <div class="carousel-item item-2">
+      <a href="#item-1" class="arrow-prev arrow" title="Arrow" ></a>
+      <a href="#item-3" class="arrow-next arrow" title="Arrow" ></a>
+    </div>
+
+    <div class="carousel-item item-3">
+      <a href="#item-2" class="arrow-prev arrow" title="Arrow" ></a>
+      <a href="#item-1" class="arrow-next arrow" title="Arrow" ></a>
+    </div>
+
+  </div>
+
+  <button class="btn" type="button" title="Read Blogs"><a href="/blogs.html">Read Blogs</a></button>
+
+
+
+
+  <footer>
+    <div class="icon">
+    <a href="mailto:officialblooglee@gmail.com" target="_blank"><img src="/Images/Gmail.svg" alt="Image 1" > </a> 
+    <a href="https://discord.gg/Wail.comBurZMY3zZ" target="_blank"><img src="/Images/Discord.svg" alt="Image 2"></a>
+      <a href="https://www.patreon.com/Blooglee/membership?" target="_blank"><img src="/Images/patreon.svg" alt="Image 3"></a>
+    
+      </div>
+    <div class="footer-container">
+      <div class="links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <span>|</span>
+      <p>&copy; 2023 Blooglee.com, All rights reserved.</p>
+      </div>
+    </div>
+    </footer>
+
+<hr>
+
+
+
+
+</body>
+
+</html>
